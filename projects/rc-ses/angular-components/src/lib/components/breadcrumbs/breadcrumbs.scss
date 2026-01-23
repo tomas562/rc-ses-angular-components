@@ -1,0 +1,54 @@
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-breadcrumbs {
+
+      .mat-mdc-nav-list {
+        display: flex !important;
+        flex-direction: row;
+        padding: 0 0 .375rem !important;
+      }
+
+      .mat-mdc-list-item {
+        flex-basis: content;
+        min-height: 1.5rem;
+        padding: 0 !important;
+
+        & + .mat-mdc-list-item {
+
+          .mat-mdc-list-item-title:before {
+            color: mat.get-theme-color($theme, neutral, 40) !important;
+            content: "/";
+            display: inline;
+            margin: 0 .378rem;
+          }
+        }
+
+        &.mdc-list-item--activated {
+
+          .mat-mdc-list-item-title {
+            color: mat.get-theme-color($theme, neutral, 20) !important;
+          }
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+
+      .rc-ses-breadcrumbs {
+
+        .mat-mdc-nav-list {
+          --mat-list-active-indicator-color: transparent;
+          --mdc-list-list-item-hover-state-layer-color: transparent;
+          --mdc-list-list-item-label-text-color: #{mat.get-theme-color($theme, neutral, 40)};
+          --mdc-list-list-item-label-text-size: .6875rem;
+          --mdc-list-list-item-label-text-weight: 400;
+          --mdc-list-list-item-one-line-container-height: .875rem;
+        }
+      }
+    }
+  }
+}

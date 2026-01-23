@@ -1,0 +1,16 @@
+@if (canCollapse) {
+  <div class="rc-ses-accordion-toggle-controls">
+    <button mat-button (click)="accordion().openAll()">
+      <mat-icon>unfold_more</mat-icon>
+      Praskleisti visus
+    </button>
+    <button mat-button (click)="accordion().closeAll()">
+      <mat-icon>unfold_less</mat-icon>
+      Suskleisti visus
+    </button>
+  </div>
+}
+
+<ng-content />
+
+<rc-ses-service-form-actions />

@@ -1,0 +1,10 @@
+<mat-form-field [appearance]="flat ? 'fill' : 'outline'">
+  <input hidden="true" matInput style="display: none;" />
+  <mat-checkbox
+    type="checkbox"
+    [formControl]="control"
+  >
+    {{ description }}
+    <ng-content />
+  </mat-checkbox>
+</mat-form-field>

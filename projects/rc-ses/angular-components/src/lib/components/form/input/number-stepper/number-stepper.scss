@@ -1,0 +1,88 @@
+@use 'sass:color';
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-number-stepper {
+      --mat-icon-button-hover-state-layer-opacity: 0;
+      --mat-icon-button-state-layer-color: transparent;
+      --mdc-icon-button-state-layer-size: 42px;
+
+      input[type="number"] {
+        appearance: textfield;
+        -moz-appearance: textfield;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+
+      .mat-mdc-form-field {
+        max-width: 300px;
+
+        &-has-icon-suffix {
+
+          .mat-mdc-text-field-wrapper {
+            padding-right: 0 !important;
+          }
+        }
+
+        &-icon-suffix {
+
+          .mat-mdc-icon-button {
+            width: 44px !important
+          }
+
+          .mdc-icon-button {
+            background-color: mat.get-theme-color($theme, neutral, 98) !important;
+            border-left: 1px solid var(--mdc-outlined-text-field-outline-color) !important;
+            border-radius: 0 !important;
+
+            &:last-of-type {
+              border-bottom-right-radius: .25rem !important;
+              border-top-right-radius: .25rem !important;
+              margin-right: 1px;
+            }
+
+            &:not(:disabled) {
+
+              &:hover {
+                background-color: mat.get-theme-color($theme, neutral, 95) !important;
+              }
+            }
+
+            .mat-mdc-button-persistent-ripple {
+              border-radius: 0 !important;
+            }
+          }
+        }
+      }
+
+      @at-root .rc-ses-number-stepper :hover {
+        // .mdc-icon-button {
+        //   border-bottom-color: mat.get-theme-color($theme, neutral, 20) !important;
+        //   border-top-color: mat.get-theme-color($theme, neutral, 20) !important;
+        // }
+      }
+
+      @at-root .mat-focused .mat-mdc-form-field-icon-suffix {
+        --mdc-icon-button-state-layer-size: 40px;
+
+        .mdc-icon-button {
+
+          &:last-of-type {
+            margin-right: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+
+    }
+  }
+}

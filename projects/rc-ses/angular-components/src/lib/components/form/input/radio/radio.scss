@@ -1,0 +1,85 @@
+@use 'sass:color';
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .mat-mdc-radio {
+
+      &-button {
+        --mat-radio-checked-ripple-color: #{color.adjust(mat.get-theme-color($theme, primary, 60), $alpha: -0.8)};
+        --mat-radio-ripple-color: #{color.adjust(mat.get-theme-color($theme, primary, 60), $alpha: -0.8)};
+
+        --mdc-radio-selected-focus-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+        --mdc-radio-selected-hover-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+        --mdc-radio-selected-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+        --mdc-radio-selected-pressed-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+
+        --mdc-radio-unselected-hover-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+        --mdc-radio-unselected-focus-icon-color: #{mat.get-theme-color($theme, neutral, 50)};
+        --mdc-radio-unselected-icon-color: #{mat.get-theme-color($theme, neutral, 50)};
+        --mdc-radio-unselected-pressed-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+
+        .mdc-radio {
+
+          &__outer-circle {
+            background-color: white;
+          }
+
+          &__inner-circle {
+            // border-width: 5px !important;
+          }
+
+          &__background {
+
+            &::before {
+              height: 28px !important;
+              left: -.25rem !important;
+              top: -.25rem !important;
+              opacity: 1 !important;
+              width: 28px !important;
+            }
+          }
+
+          &__native-control {
+
+            &:focus:not(:hover):not(:checked) + .mdc-radio__background::before {
+              opacity: 0 !important;
+            }
+
+            &:checked {
+
+              & + .mdc-radio__background  {
+
+                .mdc-radio__inner-circle {
+                  border-width: 5px !important;
+                  transform: scale(1) !important;
+                }
+              }
+            }
+
+            &:active {
+
+              & + .mdc-radio__background  {
+
+                .mdc-radio__outer-circle {
+                  background-color: mat.get-theme-color($theme, neutral, 98);
+                }
+              }
+            }
+          }
+        }
+
+        .mdc-label {
+          margin-left: -.125rem !important;
+          padding-left: 0 !important;
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+      --mdc-radio-state-layer-size: 40px;
+    }
+  }
+}

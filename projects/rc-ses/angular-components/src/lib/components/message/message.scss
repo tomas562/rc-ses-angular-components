@@ -1,0 +1,141 @@
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-message {
+      display: block;
+      font-size: .875rem;
+      line-height: 1.125rem;
+      margin-bottom: 1.25rem;
+
+      &--wrapper {
+        align-items: center;
+        border-radius: .375rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding: .75rem 1rem;
+      }
+
+      &--icon {
+        flex-grow: 0;
+        margin-right: .75rem;
+      }
+
+      &--content {
+        flex-grow: 1;
+      }
+
+      &--actions {
+        align-items: center;
+        display: flex;
+        flex-grow: 0;
+
+        &:not(:empty) {
+          margin-left: .75rem;
+        }
+      }
+
+      &--severity {
+
+        &-default {
+          background-color: mat.get-theme-color($theme, neutral, 98);
+          border-color: mat.get-theme-color($theme, neutral, 90);
+          color: mat.get-theme-color($theme, primary, 20);
+
+          svg path {
+            fill: mat.get-theme-color($theme, neutral, 40);
+          }
+
+          &.rc-ses-message--theme-dark {
+            background-color: mat.get-theme-color($theme, neutral, 20);
+            border-color: mat.get-theme-color($theme, neutral, 20);
+          }
+        }
+
+        &-info {
+          background-color: mat.get-theme-color($theme, primary, 100);
+          border-color: mat.get-theme-color($theme, primary, 90);
+          color: mat.get-theme-color($theme, neutral, 20);
+
+          svg path {
+            fill: mat.get-theme-color($theme, primary, 50);
+          }
+
+          &.rc-ses-message--theme-dark {
+            background-color: mat.get-theme-color($theme, primary, 20);
+            border-color: mat.get-theme-color($theme, primary, 20);
+          }
+        }
+
+        &-warning {
+          background-color: #fdefcf;
+          border-color: #fbd170;
+          color: #4a3504;
+
+          svg path {
+            fill: #c78f0d;
+          }
+
+          &.rc-ses-message--theme-dark {
+            background-color: #fbd170;
+            border-color: #fbd170;
+            color: #312303;
+          }
+        }
+
+        &-error {
+          background-color: mat.get-theme-color($theme, error, 99);
+          border-color: mat.get-theme-color($theme, error, 90);
+          color: mat.get-theme-color($theme, error, 20);
+
+          svg path {
+            fill: mat.get-theme-color($theme, error, 40);
+          }
+
+          &.rc-ses-message--theme-dark {
+            background-color: mat.get-theme-color($theme, error, 40);
+            border-color: mat.get-theme-color($theme, error, 40);
+          }
+        }
+
+        &-success {
+          background-color: mat.get-theme-color($theme, secondary, 98);
+          border-color: mat.get-theme-color($theme, secondary, 90);
+          color: mat.get-theme-color($theme, secondary, 20);
+
+          svg path {
+            fill: mat.get-theme-color($theme, secondary, 40);
+          }
+
+          &.rc-ses-message--theme-dark {
+            background-color: mat.get-theme-color($theme, secondary, 30);
+            border-color: mat.get-theme-color($theme, secondary, 30);
+          }
+        }
+      }
+
+      &--theme {
+
+        &-light {
+          border-style: solid;
+          border-width: 1px;
+        }
+
+        &-dark {
+          color: white;
+
+          svg path {
+            fill: white;
+          }
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+
+    }
+  }
+}

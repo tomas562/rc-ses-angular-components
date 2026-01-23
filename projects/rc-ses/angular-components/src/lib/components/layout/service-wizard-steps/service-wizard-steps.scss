@@ -1,0 +1,93 @@
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-service-wizard-steps {
+      cursor: default !important;
+
+      .mat-icon {
+        position: relative;
+        text-align: center !important;
+
+        svg {
+          vertical-align: middle;
+        }
+      }
+
+      .wizard-step-status {
+
+        &--active {
+
+          .mat-icon svg {
+            height: .75rem !important;
+            width: .75rem !important;
+          }
+        }
+
+        &--pending {
+
+          .mat-icon svg {
+            height: .375rem !important;
+            width: .375rem !important;
+
+            * {
+              fill: mat.get-theme-color($theme, neutral, 90) !important;
+            }
+          }
+        }
+      }
+
+      .mdc-list {
+        padding: 3.375rem 0 1.5rem !important;
+      }
+
+      .mdc-list-item {
+        --mdc-list-list-item-container-color: transparent !important;
+        --mdc-list-list-item-hover-state-layer-color: transparent !important;
+        --mdc-list-list-item-label-text-color: #{mat.get-theme-color($theme, neutral, 30)};
+        --mdc-list-list-item-label-text-line-height: 1.125rem;
+        --mdc-list-list-item-label-text-size: .875rem;
+        --mdc-list-list-item-one-line-container-height: 2rem;
+        --mat-list-active-indicator-color: transparent !important;
+
+        cursor: default !important;
+
+        &--with-leading-icon .mdc-list-item__start {
+          margin-left: 0 !important;
+          margin-right: .625rem !important;
+        }
+      }
+
+      .mat-mdc-list-item {
+
+        &:after {
+          content: "";
+          border-left: 2px solid mat.get-theme-color($theme, neutral, 98);
+          height: 100%;
+          left: 11px;
+          position: absolute;
+          // K: 50%;
+          z-index: -1;
+        }
+
+        &:first-of-type:after {
+          top: 50%;
+        }
+
+        &:last-of-type:after {
+          bottom: 50%;
+        }
+
+        .mat-mdc-focus-indicator {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<mat-form-field>
+  <button
+    mat-icon-button
+    matSuffix
+    (click)="add()"
+    [disabled]="control.disabled || !canAdd()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    matSuffix
+    (click)="subtract()"
+    [disabled]="control.disabled || !canSubtract()"
+  >
+    <mat-icon>remove</mat-icon>
+  </button>
+
+  <input
+    rc-ses-input
+    matInput
+    type="number"
+    [formControl]="control"
+    [placeholder]="placeholder"
+    [min]="min"
+    [max]="max"
+    [step]="step"
+  />
+</mat-form-field>

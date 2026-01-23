@@ -1,0 +1,18 @@
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-divider {
+
+      .mat-divider {
+        margin: 2rem 0 !important;
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+      --mat-divider-color: #{mat.get-theme-color($theme, neutral, 95)};
+    }
+  }
+}

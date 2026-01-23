@@ -1,0 +1,39 @@
+<div
+  aria-live="polite"
+  class="rc-ses-message--wrapper mat-accent"
+  [class]="containerClass"
+>
+
+  @if (!hideIcon) {
+    <div class="rc-ses-message--icon">
+      @switch (severity) {
+        @case ('info') {
+          <mat-icon matListItemIcon svgIcon="rc-ses-info-fill" aria-hidden="false" />
+        }
+        @case ('warning') {
+          <mat-icon matListItemIcon svgIcon="rc-ses-warning-fill" aria-hidden="false" />
+        }
+        @case ('error') {
+          <mat-icon matListItemIcon svgIcon="rc-ses-warning-diamond-fill" aria-hidden="false" />
+        }
+        @case ('success') {
+          <mat-icon matListItemIcon svgIcon="rc-ses-check-circle-fill" aria-hidden="false" />
+        }
+        @default {
+          <mat-icon matListItemIcon svgIcon="rc-ses-info-fill" aria-hidden="false" />
+        }
+      }
+    </div>
+  }
+
+  <div class="rc-ses-message--content">
+    <ng-content />
+  </div>
+
+  <div class="rc-ses-message--actions">
+    @if (dismissible) {
+      <button rc-ses-button mat-stroked-button>Uždaryti</button>
+    }
+    <ng-content select="[actions]" />
+  </div>
+</div>

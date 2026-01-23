@@ -1,0 +1,283 @@
+<rc-ses-service-page>
+  <rc-ses-service-header
+    serviceName="Nekilnojamojo turto registro išrašas pagal nurodytą turto adresą"
+    serviceDescription="Šiame puslapyje Jūs galite užsisakyti Nekilnojamojo turto registro išrašus, pažymas bei kitus dokumentus. Užsakytą NTR išrašą, pažymą ar kitą dokumentą galėsite gauti elektroniniu būdu arba atsiimti pasirinktame VĮ Registrų centro padalinyje."
+    [path]="[{ label: 'Formos su vedliu pavyzdys', path: '/sample-form-multiple-steps'}]"
+  />
+  <rc-ses-service-wizard-steps
+    [steps]="[
+      { state: 'completed', label: 'Bazinė informacija'},
+      { state: 'active', label: 'Paslaugos užsakymas'},
+      { state: 'pending', label: 'Išdavimas'},
+      { state: 'pending', label: 'Reikalingos papildomos paslaugos'},
+      { state: 'pending', label: 'Terminai ir sąlygos'},
+    ]"
+  />
+  <rc-ses-service-form-container>
+    <mat-accordion rc-ses-accordion multi>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Bazinė informacija</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Paslaugos užsakymas</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          <form [formGroup]="formStep1">
+            <rc-ses-form-field label="Tikslas">
+              <rc-ses-select
+                formControlName="purpose"
+                placeholder="Pasirinkite"
+                [options]="purposeOptions"
+              />
+            </rc-ses-form-field>
+
+            <rc-ses-form-field label="Teisinis pagrindas">
+              <rc-ses-select
+                formControlName="legalBasis"
+                placeholder="Pasirinkite"
+                [options]="legalBasisOptions"
+              />
+            </rc-ses-form-field>
+
+            <rc-ses-form-field label="Turto adresas">
+              <rc-ses-select
+                formControlName="propertyAddress"
+                placeholder="Pasirinkite"
+                [options]="propertyAddressOptions"
+                searchable
+              />
+            </rc-ses-form-field>
+
+            <rc-ses-form-field label="Sutikimas">
+              <rc-ses-agreement-checkbox
+                formControlName="agreement"
+                description="Pagal užsakymą gautus duomenis naudosiu nurodytam duomenų tikslui ir šių duomenų neatskleisiu tretiesiems asmenims."
+              />
+            </rc-ses-form-field>
+
+            <rc-ses-form-field label="Terminas">
+              <rc-ses-select
+                formControlName="deadline"
+                placeholder="Pasirinkite"
+                [options]="deadlineOptions"
+              />
+            </rc-ses-form-field>
+
+            <rc-ses-form-field label="Egzempliorių skaičius">
+              <rc-ses-number-stepper
+                formControlName="numberOfCopies"
+                placeholder="0"
+                [min]="0"
+                [max]="9"
+                [step]="1"
+              />
+            </rc-ses-form-field>
+          </form>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Išdavimas</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          <form [formGroup]="formStep2">
+            <rc-ses-message severity="warning">
+              Primename, kad atsiimant rezultatus padalinyje su savimi privalote turėti asmens tapatybę patvirtinantį dokumentą.
+            </rc-ses-message>
+
+            <rc-ses-form-field label="Išdavimo būdas">
+              <rc-ses-radio-button-group
+                formControlName="issueMethod"
+                [options]="issueMethodOptions"
+                displayAsButtons
+              />
+            </rc-ses-form-field>
+
+            <rc-ses-form-field label="RC padalinys">
+              <rc-ses-select
+                formControlName="rcBranch"
+                placeholder="Pasirinkite"
+                [options]="rcBranchOptions"
+                searchable
+              />
+              <mat-hint align="start">Informacija apie <a href="https://www.registrucentras.lt/p/1218" target="_blank">RC padalinius</a></mat-hint>
+            </rc-ses-form-field>
+          </form>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Reikalingos papildomos paslaugos</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          <form [formGroup]="formStep3">
+            <rc-ses-form-field label="Paslaugos pavadinimas">
+              <mat-form-field>
+                <input rc-ses-input matInput type="text" formControlName="additionalServices" />
+              </mat-form-field>
+            </rc-ses-form-field>
+          </form>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Terminai ir sąlygos</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          <form [formGroup]="formStep4">
+            <rc-ses-form-field>
+              <rc-ses-agreement-checkbox
+                formControlName="termsAndConditionsAgreement"
+                flat
+              >
+              <b>Užsakydamas darbus esu susipažinęs su <a href="#" target="_blank">darbų atlikimo ir atlyginimo tvarka</a> ir įsipareigoju apmokėti už užsakytus darbus. Esu informuotas, kad per nurodytą terminą neapmokėjus apskaičiuoto mokesčio, darbų užsakymas per pasiriktą terminą nebus įvykdytas.</b>
+            </rc-ses-agreement-checkbox>
+            </rc-ses-form-field>
+          </form>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </rc-ses-service-form-container>
+</rc-ses-service-page>
+
+<!--
+<br />
+<br />
+<button rc-ses-button mat-button>RC SES basic button</button>
+&nbsp;
+<button rc-ses-button mat-button disabled>RC SES basic button</button>
+
+<br />
+<br />
+<button rc-ses-button mat-button color="neutral">RC SES basic neutral button</button>
+&nbsp;
+<button rc-ses-button mat-button color="neutral" disabled>RC SES basic button</button>
+
+<br />
+<br />
+<button rc-ses-button mat-flat-button>RC SES button</button>
+&nbsp;
+<button rc-ses-button mat-flat-button disabled>RC SES button</button>
+&nbsp;
+<button rc-ses-button mat-stroked-button>RC SES button</button>
+&nbsp;
+<button rc-ses-button mat-stroked-button disabled>RC SES button</button>
+
+<br />
+<br />
+<button rc-ses-button mat-flat-button color="secondary">RC SES secondary button</button>
+&nbsp;
+<button rc-ses-button mat-flat-button color="secondary" disabled>RC SES secondary button</button>
+&nbsp;
+<button rc-ses-button mat-stroked-button color="secondary">RC SES secondary button</button>
+&nbsp;
+<button rc-ses-button mat-stroked-button color="secondary" disabled>RC SES secondary button</button>
+
+<br />
+<br />
+<button rc-ses-button mat-flat-button color="neutral">RC SES neutral button</button>
+&nbsp;
+<button rc-ses-button mat-flat-button color="neutral" disabled>RC SES neutral button</button>
+&nbsp;
+<button rc-ses-button mat-stroked-button color="neutral">RC SES neutral button</button>
+&nbsp;
+<button rc-ses-button mat-stroked-button color="neutral" disabled>RC SES neutral button</button>
+
+<br />
+<br />
+<button rc-ses-button mat-flat-button color="dark">RC SES dark button</button>
+&nbsp;
+<button rc-ses-button mat-flat-button color="dark" disabled>RC SES dark button</button>
+
+<br />
+<br />
+<button rc-ses-button mat-flat-button color="danger">RC SES danger button</button>
+&nbsp;
+<button rc-ses-button mat-flat-button color="danger" disabled>RC SES danger button</button>
+
+<br />
+<br />
+
+<rc-ses-form-field
+  label="Noice label"
+  labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+>
+  <mat-form-field>
+    <input rc-ses-input matInput type="text" placeholder="Placeholder">
+  </mat-form-field>
+</rc-ses-form-field>
+
+<br />
+
+<rc-ses-form-field
+  label="Noice label"
+>
+  <mat-form-field>
+    <input rc-ses-input matInput type="text" placeholder="Placeholder">
+  </mat-form-field>
+</rc-ses-form-field>
+
+<br />
+
+<rc-ses-form-field
+  label="Noice label"
+  labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+  [formControl]="testInputFormControl"
+>
+  <mat-form-field>
+    <input rc-ses-input matInput type="text" [formControl]="testInputFormControl">
+    @if (testInputFormControl.hasError('required')) {
+      <mat-error>Duuuude</mat-error>
+    }
+  </mat-form-field>
+</rc-ses-form-field>
+
+<br />
+
+<rc-ses-form-field
+  label="Noice label"
+  labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+>
+  <mat-form-field>
+    <input rc-ses-input matInput type="text" [(ngModel)]="value" required>
+  </mat-form-field>
+</rc-ses-form-field>
+
+<br />
+
+<rc-ses-form-field
+  label="Disabled"
+  labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+>
+  <mat-form-field>
+    <input rc-ses-input matInput type="text" [(ngModel)]="value" disabled>
+  </mat-form-field>
+</rc-ses-form-field>
+
+<br />
+
+<rc-ses-form-field
+  label="Readonly"
+  labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+>
+  <mat-form-field>
+    <input rc-ses-input matInput type="text" [(ngModel)]="value" readonly>
+  </mat-form-field>
+</rc-ses-form-field>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /> -->

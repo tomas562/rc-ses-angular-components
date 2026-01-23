@@ -1,0 +1,149 @@
+@use 'sass:color';
+@use '@angular/material' as mat;
+
+@layer rc-ses {
+  :host {
+    align-items: flex-start;
+    display: flex;
+
+    &.rc-ses-has-label-subtitle {
+      align-items: center;
+
+      .rc-ses-label {
+        margin-top: 0 !important;
+      }
+    }
+  }
+}
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+
+    .rc-ses-form-field {
+      margin-bottom: 1rem;
+
+      .rc-ses-label {
+        color: mat.get-theme-color($theme, neutral, 0);
+        flex: 0 0 243px;
+        font-size: map-get($typography, 'body-2', 'font-size');
+        font-weight: 500;
+        line-height: 1.125rem;
+        margin-right: 1.5rem;
+        margin-top: .75rem;
+        text-align: right;
+        width: 243px;
+
+        .rc-ses-label-subtitle {
+          color: mat.get-theme-color($theme, neutral, 30);
+          font-size: .75rem;
+          font-style: italic;
+          font-weight: 500;
+          line-height: 1rem;
+          margin-top: .125rem;
+        }
+      }
+
+      .rc-ses-form-field__input-wrapper {
+        flex-grow: 1;
+      }
+
+      .mat-form-field {
+
+        &-appearance-fill {
+          background-color: transparent !important;
+
+          .mat-mdc-text-field-wrapper,
+          .mat-mdc-form-field-focus-overlay {
+            background-color: transparent !important;
+          }
+
+          .mdc-line-ripple {
+            display: none !important;
+          }
+        }
+      }
+
+      .mat-mdc-form-field {
+        width: 100%;
+
+        &:not(:disabled):not(.mat-form-field-disabled):not(.mat-form-field--readonly) {
+
+          &:not(.mat-form-field-invalid):hover {
+
+           .mat-mdc-notch-piece {
+              border-color: mat.get-theme-color($theme, neutral, 20) !important;
+            }
+          }
+        }
+
+        &-disabled {
+          background-color: mat.get-theme-color($theme, neutral, 98) !important;
+        }
+
+
+        &--readonly {
+
+          .mat-mdc-notch-piece,
+          &:active .mat-mdc-notch-piece,
+          &:hover .mat-mdc-notch-piece,
+          &:focus .mat-mdc-notch-piece {
+            border-color: mat.get-theme-color($theme, neutral, 40) !important;
+          }
+
+          .mat-mdc-input-element {
+            color: mat.get-theme-color($theme, neutral, 20) !important;
+          }
+
+          .mdc-notched-outline {
+
+            &::before {
+              content: unset !important;
+            }
+
+            .mat-mdc-notch-piece {
+              border-color: mat.get-theme-color($theme, neutral, 40) !important;
+              border-width: 1px !important;
+            }
+          }
+        }
+
+        &-hint {
+          display: block;
+          font-size: .875rem;
+          line-height: 1.125rem;
+          padding-top: .625rem;
+        }
+
+        &-hint-wrapper,
+        &-error-wrapper {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+      }
+
+      &--contains {
+
+        &--agreement-checkbox-component,
+        &--radio-button-group-component {
+          align-items: center !important;
+
+          .rc-ses-label {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+      --mat-form-field-container-height: 2.75rem;
+      --mat-form-field-container-text-line-height: 1.125rem;
+      --mat-form-field-container-text-size: #{map-get($typography, 'body-2', 'font-size')};
+      --mat-form-field-container-vertical-padding: .8125rem;
+
+      --mat-form-field-subscript-text-line-height: 1rem;
+      --mat-form-field-subscript-text-size: .8125rem;
+    }
+  }
+}

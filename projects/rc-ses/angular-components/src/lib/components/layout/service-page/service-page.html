@@ -1,0 +1,14 @@
+<div>
+  <ng-content select="rc-ses-service-header"></ng-content>
+</div>
+
+<div class="container container-main">
+  <div class="sidebar-wrapper">
+    <ng-content select="rc-ses-service-wizard-steps"></ng-content>
+  </div>
+
+  <div class="content-wrapper">
+    <ng-content></ng-content>
+    <ng-content select="rc-ses-service-form-container"></ng-content>
+  </div>
+</div>

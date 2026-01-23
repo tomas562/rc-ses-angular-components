@@ -1,0 +1,40 @@
+<mat-form-field>
+  <mat-select
+    [formControl]="control"
+    [placeholder]="placeholder"
+    [multiple]="multiple"
+    [panelWidth]="panelWidth"
+    hideSingleSelectionIndicator
+    disableRipple
+  >
+    @if (searchable) {
+      <div class="rc-ses-select-search-wrapper">
+        @if (multiple) {
+          <mat-checkbox
+            [checked]="isFullSelection()"
+            [indeterminate]="isPartialSelection()"
+            (change)="handleSelectAllChange($event.checked)"
+          />
+        }
+        <mat-form-field>
+          <mat-icon matPrefix>search</mat-icon>
+          <input
+            rc-ses-input
+            matInput
+            type="text"
+            placeholder="Ieškoti"
+            (keyup)="filterOptions($event)"
+          />
+        </mat-form-field>
+      </div>
+    }
+    @for (option of filteredOptions; track option.value) {
+      <mat-option [value]="option.value">
+        {{ option.label }}
+        @if (option.description) {
+          <div class="description">{{ option.description }}</div>
+        }
+      </mat-option>
+    }
+  </mat-select>
+</mat-form-field>

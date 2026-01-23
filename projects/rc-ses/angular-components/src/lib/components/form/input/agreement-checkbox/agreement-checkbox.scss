@@ -1,0 +1,36 @@
+@use 'sass:color';
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-agreement-checkbox {
+      flex-grow: 1;
+
+      b, strong {
+        font-weight: 600;
+      }
+
+      .mat-mdc-form-field {
+        background-color: mat.get-theme-color($theme, neutral, 99);
+        display: block !important;
+      }
+
+      .mat-form-field {
+
+        &-appearance-fill {
+
+          .mat-internal-form-field {
+            --mat-checkbox-label-text-size: #{map-get($typography, 'body-2', 'font-size')};
+            line-height: 1.3125rem;
+          }
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+
+    }
+  }
+}

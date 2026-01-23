@@ -1,0 +1,248 @@
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-button {
+
+      &:not(:disabled):not(.disabled) {
+
+        &:hover {
+          .mat-mdc-button-persistent-ripple::before {
+            background-color: mat.get-theme-color($theme, primary, 90) !important;
+          }
+        }
+
+        &:active {
+          .mat-mdc-button-persistent-ripple::before {
+            background-color: mat.get-theme-color($theme, primary, 70) !important;
+          }
+        }
+
+        &:focus:not(:hover) {
+          outline: 2px solid #{mat.get-theme-color($theme, neutral, 0)} !important;
+          outline-offset: 2px;
+
+          .mat-mdc-button-persistent-ripple::before {
+            background-color: mat.get-theme-color($theme, primary, 90) !important;
+          }
+        }
+
+        .mat-mdc-button-touch-target {
+          height: var(--mdc-text-button-container-height) !important;
+        }
+
+        /*
+         * TEXT ONLY
+         */
+        &.mat-mdc-button {
+
+          &:hover {
+            background-color: mat.get-theme-color($theme, primary, 98) !important;
+            color: mat.get-theme-color($theme, primary, 30) !important;
+          }
+
+          &:active {
+            background-color: mat.get-theme-color($theme, primary, 95) !important;
+            color: mat.get-theme-color($theme, primary, 20) !important;
+          }
+        }
+
+        &.mat-mdc-outlined-button {
+          background-color: white !important;
+          color: mat.get-theme-color($theme, primary, 40) !important;
+
+          .mat-mdc-button-touch-target {
+            height: var(--mdc-outlined-button-container-height) !important;
+          }
+
+          .mat-mdc-button-persistent-ripple {
+            display: none !important;
+          }
+
+          &:hover {
+            background-color: mat.get-theme-color($theme, primary, 100) !important;
+            color: mat.get-theme-color($theme, primary, 30) !important;
+          }
+
+          &:active {
+            background-color: mat.get-theme-color($theme, primary, 98) !important;
+            color: mat.get-theme-color($theme, primary, 30) !important;
+          }
+        }
+
+        /*
+         * SECONDARY
+         */
+        &.mat-secondary {
+          background-color: mat.get-theme-color($theme, secondary, 95) !important;
+          color: mat.get-theme-color($theme, secondary, 10) !important;
+
+          &:hover {
+            .mat-mdc-button-persistent-ripple::before {
+              background-color: mat.get-theme-color($theme, secondary, 90) !important;
+            }
+          }
+
+          &:active {
+            .mat-mdc-button-persistent-ripple::before {
+              background-color: mat.get-theme-color($theme, secondary, 90) !important;
+            }
+          }
+
+          &.mat-mdc-outlined-button {
+            background-color: white !important;
+            border-color: mat.get-theme-color($theme, secondary, 30) !important;
+            color: mat.get-theme-color($theme, secondary, 30) !important;
+
+            &:hover {
+              background-color: mat.get-theme-color($theme, secondary, 99) !important;
+            }
+
+            &:active {
+              background-color: mat.get-theme-color($theme, secondary, 98) !important;
+            }
+          }
+        }
+
+        /*
+         * TERTIARY
+         */
+        &.mat-neutral {
+          color: mat.get-theme-color($theme, neutral, 20) !important;
+
+          &:hover {
+            .mat-mdc-button-persistent-ripple::before {
+              background-color: mat.get-theme-color($theme, neutral, 95) !important;
+            }
+          }
+
+          &:active {
+            .mat-mdc-button-persistent-ripple::before {
+              background-color: mat.get-theme-color($theme, neutral, 90) !important;
+            }
+          }
+
+          &.mat-mdc-unelevated-button {
+            background-color: mat.get-theme-color($theme, neutral, 98) !important;
+
+            &:hover {
+              .mat-mdc-button-persistent-ripple::before {
+                background-color: mat.get-theme-color($theme, neutral, 95) !important;
+              }
+            }
+
+            &:active {
+              .mat-mdc-button-persistent-ripple::before {
+                background-color: mat.get-theme-color($theme, neutral, 90) !important;
+              }
+            }
+          }
+
+          &.mat-mdc-outlined-button {
+            background-color: white !important;
+            border-color: mat.get-theme-color($theme, neutral, 40) !important;
+            color: mat.get-theme-color($theme, neutral, 20) !important;
+
+            &:hover {
+              background-color: mat.get-theme-color($theme, neutral, 25) !important;
+              color: white !important;
+            }
+
+            &:active {
+              background-color: mat.get-theme-color($theme, neutral, 20) !important;
+              color: white !important;
+            }
+          }
+        }
+
+        /*
+         * DARK
+         */
+        &.mat-dark {
+          background-color: mat.get-theme-color($theme, neutral, 20) !important;
+          color: white !important;
+
+          &:hover {
+            .mat-mdc-button-persistent-ripple::before {
+              background-color: mat.get-theme-color($theme, neutral, 25) !important;
+            }
+          }
+
+          &:active {
+            .mat-mdc-button-persistent-ripple::before {
+              background-color: mat.get-theme-color($theme, neutral, 30) !important;
+            }
+          }
+        }
+
+        /*
+         * DANGER
+         */
+        &.mat-danger {
+          background-color: mat.get-theme-color($theme, error, 98) !important;
+          color: mat.get-theme-color($theme, error, 30) !important;
+
+          &:hover {
+            .mat-mdc-button-persistent-ripple::before {
+              background-color: mat.get-theme-color($theme, error, 90) !important;
+            }
+          }
+
+          &:active {
+            .mat-mdc-button-persistent-ripple::before {
+              background-color: mat.get-theme-color($theme, error, 80) !important;
+            }
+          }
+
+          &:focus:not(:hover) {
+            outline-color: #{mat.get-theme-color($theme, error, 30)} !important;
+          }
+        }
+      }
+
+      &.mat-danger {
+        &.disabled,
+        &:disabled {
+          background-color: mat.get-theme-color($theme, error, 100) !important;
+          color: mat.get-theme-color($theme, error, 90) !important;
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+      --mdc-text-button-container-shape: .1875rem;
+      --mdc-text-button-container-height: 2.75rem;
+      --mdc-text-button-label-text-size: #{map-get($typography, 'body-2', 'font-size')};
+
+      --mdc-filled-button-container-color: #{mat.get-theme-color($theme, primary, 95)};
+      --mdc-filled-button-container-height: 2.75rem;
+      --mdc-filled-button-container-shape: .1875rem;
+      --mdc-filled-button-disabled-label-text-color: #{mat.get-theme-color($theme, neutral, 50)};
+      --mdc-filled-button-disabled-container-color: #{mat.get-theme-color($theme, neutral, 98)};
+      --mat-filled-button-horizontal-padding: 1.25rem;
+      --mdc-filled-button-label-text-weight: 600;
+      --mat-filled-button-hover-state-layer-opacity: 1;
+      --mdc-filled-button-label-text-color: #{mat.get-theme-color($theme, primary, 0)};
+      --mat-filled-button-pressed-state-layer-opacity: 1;
+      --mat-filled-button-state-layer-color: 0;
+      --mdc-filled-button-label-text-size: #{map-get($typography, 'body-2', 'font-size')};
+
+      --mdc-outlined-button-container-color: white;
+      --mdc-outlined-button-container-height: 2.75rem;
+      --mdc-outlined-button-container-shape: .1875rem;
+      --mdc-outlined-button-disabled-label-text-color: #{mat.get-theme-color($theme, neutral, 70)};
+      --mdc-outlined-button-disabled-container-color: #{mat.get-theme-color($theme, neutral, 90)};
+      --mat-outlined-button-horizontal-padding: 1.25rem;
+      --mat-outlined-button-hover-state-layer-opacity: 1;
+      --mdc-outlined-button-label-text-size: #{map-get($typography, 'body-2', 'font-size')};
+      --mdc-outlined-button-label-text-color: #{mat.get-theme-color($theme, primary, 40)};
+      --mdc-outlined-button-label-text-weight: 600;
+      --mdc-outlined-button-outline-color: #{mat.get-theme-color($theme, primary, 40)};
+      --mat-outlined-button-pressed-state-layer-opacity: 1;
+      --mat-outlined-button-state-layer-color: 0;
+
+    }
+  }
+}

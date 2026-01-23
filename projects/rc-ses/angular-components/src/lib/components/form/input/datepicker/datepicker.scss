@@ -1,0 +1,18 @@
+@use 'sass:color';
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .mat-datepicker-popup {
+
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+      --mat-datepicker-calendar-container-background-color: white;
+      --mat-datepicker-calendar-container-elevation-shadow: 0px 4px 16px 0px #091e423d, 0px 8px 16px 0px #091e421a;
+      ;
+    }
+  }
+}

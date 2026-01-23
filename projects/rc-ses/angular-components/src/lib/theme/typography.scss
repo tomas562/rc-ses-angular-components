@@ -1,0 +1,63 @@
+@use '@angular/material' as mat;
+
+$typography: null;
+
+@layer material {
+  $typography: mat.m2-define-typography-config(
+    $font-family: 'Public Sans',
+    $headline-1: mat.m2-define-typography-level(
+      $font-size: 2.25rem,
+      $font-weight: 500,
+      $letter-spacing: 0,
+      $line-height: 3rem,
+    ),
+    $headline-2: mat.m2-define-typography-level(
+      $font-size: 5rem,
+      $font-weight: 500,
+      $letter-spacing: 0,
+      $line-height: 2.7,
+    ),
+    $headline-3: mat.m2-define-typography-level(
+      $font-size: 1.75rem,
+      $font-weight: 500,
+      $letter-spacing: 0,
+      $line-height: 2.3625,
+    ),
+    $headline-4: mat.m2-define-typography-level(
+      $font-size: 1.5rem,
+      $font-weight: 500,
+      $letter-spacing: 0,
+      $line-height: 2.025,
+    ),
+    $headline-5: mat.m2-define-typography-level(
+      $font-size: 2.25rem,
+      $font-weight: 500,
+      $letter-spacing: 0,
+      $line-height: 3rem,
+    ),
+    $headline-6: mat.m2-define-typography-level(
+      $font-size: 1.25rem,
+      $font-weight: 500,
+      $letter-spacing: 0,
+      $line-height: 1.51875,
+    ),
+    $body-1: mat.m2-define-typography-level(
+      $font-size: 0.9375rem,
+      $font-weight: 400,
+      $letter-spacing: 0,
+      $line-height: 1.125rem,
+    ),
+    $body-2: mat.m2-define-typography-level(
+      $font-size: 0.9375rem,
+      $font-weight: 400,
+      $letter-spacing: 0,
+      $line-height: 1.125rem,
+    ),
+    $button: mat.m2-define-typography-level(
+      $font-weight: 400,
+      $font-size: 0.9375rem,
+      $line-height: 1.125rem,
+      $letter-spacing: 0,
+    ),
+  ) !global;
+}

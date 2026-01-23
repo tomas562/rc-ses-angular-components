@@ -1,0 +1,65 @@
+@use '@angular/material' as mat;
+
+@use './palette.scss' as palette;
+@use './typography.scss' as typography;
+@use './theme.scss' as theme;
+
+@use '../components/accordion/accordion.scss' as rc-ses-accordion;
+@use '../components/breadcrumbs/breadcrumbs.scss' as rc-ses-breadcrumbs;
+@use '../components/button/button.scss' as rc-ses-button;
+@use '../components/divider/divider.scss' as rc-ses-divider;
+@use '../components/form/form-field/form-field.scss' as rc-ses-form-field;
+@use '../components/form/input/agreement-checkbox/agreement-checkbox.scss' as rc-ses-agreement-checkbox;
+@use '../components/form/input/checkbox/checkbox.scss' as rc-ses-checkbox;
+@use '../components/form/input/datepicker/datepicker.scss' as rc-ses-datepicker;
+@use '../components/form/input/input/input.scss' as rc-ses-input;
+@use '../components/form/input/number-stepper/number-stepper.scss' as rc-ses-number-stepper;
+@use '../components/form/input/select/select.scss' as rc-ses-select;
+@use '../components/form/input/radio/radio.scss' as rc-ses-radio;
+@use '../components/form/input/radio-button-group/radio-button-group.scss' as rc-ses-radio-button-group;
+@use '../components/message/message.scss' as rc-ses-message;
+@use '../components/layout/service-header/service-header.scss' as rc-ses-service-header;
+@use '../components/layout/service-form-actions/service-form-actions.scss' as rc-ses-service-form-actions;
+@use '../components/layout/service-form-container/service-form-container.scss' as rc-ses-service-form-container;
+@use '../components/layout/service-page/service-page.scss' as rc-ses-service-page;
+@use '../components/layout/service-wizard-steps/service-wizard-steps.scss' as rc-ses-service-wizard-steps;
+
+@layer rc-ses-variables, rc-ses, material;
+
+@layer material {
+  @include mat.core();
+
+  html {
+    @include mat.all-component-themes(theme.$theme);
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  @include mat.color-variants-backwards-compatibility(theme.$theme);
+  @include mat.typography-hierarchy(typography.$typography, $back-compat: true);
+}
+
+@include rc-ses-agreement-checkbox.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-accordion.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-button.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-checkbox.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-divider.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-form-field.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-datepicker.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-input.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-message.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-number-stepper.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-radio.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-radio-button-group.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-select.bootstrap(theme.$theme, typography.$typography);
+
+@include rc-ses-service-header.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-breadcrumbs.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-service-form-actions.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-service-form-container.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-service-page.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-service-wizard-steps.bootstrap(theme.$theme, typography.$typography);
+

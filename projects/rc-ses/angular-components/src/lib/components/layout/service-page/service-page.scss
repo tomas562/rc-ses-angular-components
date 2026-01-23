@@ -1,0 +1,38 @@
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-service-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        max-width: 1130px;
+        padding: 0 1.25rem !important;
+      }
+
+      .container-main {
+        margin-top: 3rem;
+      }
+
+      .sidebar-wrapper {
+        flex: 1 1 0%;
+      }
+
+      .content-wrapper {
+        width: 840px;
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+
+    }
+  }
+}

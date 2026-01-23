@@ -1,0 +1,32 @@
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-service-form-container {
+
+      .rc-ses-accordion-toggle-controls {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0 -.625rem 1rem;
+
+        .mat-mdc-button {
+          margin: 0 .625rem;
+
+          .mat-mdc-button-touch-target {
+            height: var(--mdc-text-button-container-height) !important;
+          }
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+      .rc-ses-service-form-container {
+        --mdc-text-button-container-height: 2.375rem;
+        --mat-text-button-icon-spacing: .125rem;
+        --mat-text-button-with-icon-horizontal-padding: .125rem;
+      }
+    }
+  }
+}

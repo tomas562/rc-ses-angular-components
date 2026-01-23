@@ -1,0 +1,11 @@
+@if(label) {
+  <mat-label #matLabel class="rc-ses-label">
+    {{ label }}:
+    @if(labelSubtitle) {
+      <div class="rc-ses-label-subtitle">{{ labelSubtitle }}</div>
+    }
+  </mat-label>
+}
+<div class="rc-ses-form-field__input-wrapper">
+  <ng-content />
+</div>

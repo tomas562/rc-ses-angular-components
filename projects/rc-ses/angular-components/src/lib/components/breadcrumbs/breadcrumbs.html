@@ -1,0 +1,7 @@
+<mat-nav-list role="navigation">
+  @for (item of path; track $index) {
+    <mat-list-item [activated]="$last">
+      <div matListItemTitle [routerLink]="item.path">{{item.label}}</div>
+    </mat-list-item>
+  }
+</mat-nav-list>

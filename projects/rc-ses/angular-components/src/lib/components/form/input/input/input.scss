@@ -1,0 +1,66 @@
+@use 'sass:color';
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-input {
+      background-color: white;
+    }
+
+    .mdc-text-field--outlined {
+      padding-right: max(.75rem, var(--mdc-outlined-text-field-container-shape)) !important;
+      padding-left: max(.75rem, var(--mdc-outlined-text-field-container-shape) + 4px) !important;
+
+      &:not(.mdc-text-field--disabled):not(.mat-form-field--readonly) {
+
+        &.mdc-text-field--focused {
+
+          .mdc-notched-outline {
+
+            &::before {
+              box-shadow: 0px 0px 0px 3px #{color.adjust(mat.get-theme-color($theme, neutral, 20), $alpha: -0.8)};
+              border-radius: var(--mdc-outlined-text-field-container-shape);
+              content: "";
+              position: absolute;
+              height: 100%;
+              width: 100%;
+            }
+          }
+
+          &.mdc-text-field--invalid {
+
+            .mdc-notched-outline::before {
+              box-shadow: 0px 0px 0px 3px #{color.adjust(mat.get-theme-color($theme, error, 40), $alpha: -0.8)};
+            }
+          }
+        }
+
+        &:not(.mdc-text-field--focused) {
+
+          &:hover {
+
+            &.mdc-text-field--invalid {
+
+              .mdc-notched-outline .mat-mdc-notch-piece {
+                border-color: mat.get-theme-color($theme, error, 40) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+      --mdc-outlined-text-field-caret-color: #{mat.get-theme-color($theme, neutral, 20)};
+      --mdc-outlined-text-field-disabled-input-text-color: #{mat.get-theme-color($theme, neutral, 40)};
+      --mdc-outlined-text-field-disabled-outline-color: #{mat.get-theme-color($theme, neutral, 40)};
+      --mdc-outlined-text-field-focus-outline-color: #{mat.get-theme-color($theme, neutral, 20)};
+      --mdc-outlined-text-field-focus-outline-width: 2px;
+      --mdc-outlined-text-field-input-text-color: #{mat.get-theme-color($theme, neutral, 20)};
+      --mdc-outlined-text-field-input-text-placeholder-color: #{mat.get-theme-color($theme, neutral, 40)};
+      --mdc-outlined-text-field-outline-color: #{mat.get-theme-color($theme, neutral, 40)};
+    }
+  }
+}

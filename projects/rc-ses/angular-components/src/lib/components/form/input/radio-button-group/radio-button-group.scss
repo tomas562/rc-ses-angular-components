@@ -1,0 +1,87 @@
+@use 'sass:color';
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-radio-button-group {
+      border: 1px solid #{mat.get-theme-color($theme, neutral, 50)};
+      border-radius: .1875rem;
+      display: block;
+      padding: .375rem;
+
+      &--has-background {
+        background-color: mat.get-theme-color($theme, neutral, 98);
+        border: none !important;
+      }
+
+      &--radio-as-buttons {
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0;
+
+        .mat-mdc-radio-group {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: stretch;
+          margin: -.25rem;
+        }
+
+        .mat-mdc-radio-button {
+          background-color: var(--mdc-outlined-button-container-color);
+          border-color: var(--mdc-outlined-text-field-outline-color);
+          border-style: solid;
+          border-radius: var(--mdc-outlined-button-container-shape);
+          border-width: 1px;
+          display: flex;
+          flex: 0 0 0%;
+          justify-content: center;
+          margin: .25rem;
+          padding: 0 !important;
+
+          .mdc-radio {
+            position: absolute !important;
+            opacity: 0 !important;
+            padding: 0 !important;
+            z-index: -1;
+          }
+
+          .mdc-label {
+            cursor: pointer;
+            font-size: var(--mdc-text-button-label-text-size);
+            font-weight: 600;
+            line-height: 1.125rem;
+            padding: .8125rem 1rem !important;
+            text-wrap: nowrap;
+          }
+
+          &:hover {
+            border-color: mat.get-theme-color($theme, neutral, 25);
+            background-color: mat.get-theme-color($theme, neutral, 98);
+          }
+
+          &:active {
+            border-color: mat.get-theme-color($theme, neutral, 20);
+            background-color: mat.get-theme-color($theme, neutral, 95);
+          }
+
+          &:focus-within:not(:hover) {
+            outline: 2px solid #{mat.get-theme-color($theme, neutral, 0)} !important;
+            outline-offset: 2px;
+          }
+
+          &.mat-mdc-radio-checked {
+            border-color: mat.get-theme-color($theme, primary, 90);
+            background-color: mat.get-theme-color($theme, primary, 95);
+          }
+        }
+      }
+
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+
+    }
+  }
+}

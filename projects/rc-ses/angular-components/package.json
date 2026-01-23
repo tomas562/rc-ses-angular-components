@@ -1,0 +1,23 @@
+{
+  "name": "@rc-ses/angular-components",
+  "version": "0.0.1",
+  "exports": {
+    "./theme": {
+      "index": "./src/lib/theme/index.scss",
+      "palette": "./src/lib/theme/palette.scss",
+      "theme": "./src/lib/theme/theme.scss",
+      "typography": "./src/lib/theme/typography.scss"
+    }
+  },
+  "peerDependencies": {
+    "@angular/animations": "^18.1.0",
+    "@angular/cdk": "^18.1.2",
+    "@angular/common": "^18.1.0",
+    "@angular/core": "^18.1.0",
+    "@angular/material": "^18.1.2"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

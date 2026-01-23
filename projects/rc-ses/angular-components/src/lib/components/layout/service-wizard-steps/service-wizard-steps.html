@@ -1,0 +1,18 @@
+<mat-nav-list role="navigation">
+  @for (item of steps; track $index) {
+    <mat-list-item
+      [activated]="item.state === 'active'"
+      [class]="'wizard-step-status--' + item.state"
+    >
+      @switch (item.state) {
+        @case ('completed') {
+          <mat-icon matListItemIcon svgIcon="rc-ses-check-circle" aria-hidden="false"></mat-icon>
+        }
+        @default {
+          <mat-icon matListItemIcon svgIcon="rc-ses-circle" aria-hidden="false"></mat-icon>
+        }
+      }
+      <div matListItemTitle>{{ item.label }}</div>
+    </mat-list-item>
+  }
+</mat-nav-list>

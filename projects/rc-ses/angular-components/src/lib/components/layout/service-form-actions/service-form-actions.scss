@@ -1,0 +1,64 @@
+@use '@angular/material' as mat;
+
+@mixin bootstrap($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-service-form-actions {
+      color: mat.get-theme-color($theme, primary, 30);
+
+      .mat-mdc-card-content {
+        align-items: center;
+        display: flex !important;
+        justify-content: space-between;
+        padding: 2rem !important;
+      }
+
+      button[type="submit"] {
+        --mdc-filled-button-container-height: 3.375rem;
+        --mat-filled-button-horizontal-padding: 2.25rem;
+        display: flex !important;
+        flex-direction: row-reverse;
+        flex-wrap: nowrap;
+
+        .mat-icon {
+          margin-left: .5rem !important;
+          margin-right: 0 !important;
+        }
+      }
+
+      .rc-ses-footer-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        padding: .875rem 0;
+
+        .mdc-button {
+          text-decoration: underline !important;
+
+          &__label {
+            color: mat.get-theme-color($theme, neutral, 40) !important;
+          }
+
+          &:hover {
+            text-decoration: none !important;
+
+            .mdc-button__label {
+              color: mat.get-theme-color($theme, primary, 30) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+
+      .rc-ses-service-form-actions {
+        --mdc-outlined-card-container-shape: .375rem;
+        --mdc-outlined-card-container-color: #{mat.get-theme-color($theme, primary, 100)};
+        --mdc-outlined-card-outline-color: #{mat.get-theme-color($theme, primary, 90)};
+        --mdc-outlined-card-container-elevation: unset;
+      }
+    }
+  }
+}

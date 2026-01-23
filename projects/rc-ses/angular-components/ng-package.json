@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/rc-ses/angular-components",
+  "assets": [
+    "./src/lib/theme/index.scss",
+    "./src/lib/theme/palette.scss",
+    "./src/lib/theme/theme.scss",
+    "./src/lib/theme/typography.scss"
+  ],
+  "lib": {
+    "entryFile": "src/public-api.ts"
+  }
+}
