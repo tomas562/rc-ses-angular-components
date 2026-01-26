@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "@rc-ses/angular-components": {
+    "@registrucentras/rc-ses-angular-components": {
       "projectType": "library",
       "root": "projects/rc-ses/angular-components",
       "sourceRoot": "projects/rc-ses/angular-components/src",
@@ -122,5 +122,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

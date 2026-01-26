@@ -1,6 +1,6 @@
 {
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../../dist/rc-ses/angular-components",
+  "dest": "../../../dist/registrucentras/rc-ses-angular-components",
   "assets": [
     "./src/lib/theme/index.scss",
     "./src/lib/theme/palette.scss",

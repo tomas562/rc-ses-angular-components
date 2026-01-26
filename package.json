@@ -1,17 +1,17 @@
 {
-  "name": "@rc-ses/angular-components",
-  "author": "Codeopera, UAB",
-  "version": "0.0.1",
+  "name": "@registrucentras/rc-ses-angular-components",
+  "author": "VĮ REGISTRŲ CENTRAS",
+  "version": "0.1.0",
+  "description": "RC SES Angular komponentų biblioteka",
   "scripts": {
     "dev": "ng serve",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build app",
-    "build:lib": "ng build @rc-ses/angular-components",
+    "build:lib": "ng build @registrucentras/rc-ses-angular-components",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^18.1.0",
     "@angular/cdk": "^18.1.0",
@@ -23,7 +23,7 @@
     "@angular/platform-browser": "^18.1.0",
     "@angular/platform-browser-dynamic": "^18.1.0",
     "@angular/router": "^18.1.0",
-    "@rc-ses/angular-components": "file:dist/rc-ses/angular-components",
+    "@registrucentras/rc-ses-angular-components": "file:dist/registrucentras/rc-ses-angular-components",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
