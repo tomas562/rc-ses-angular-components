@@ -4,8 +4,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@rc-ses/angular-components": [
-        "./dist/rc-ses/angular-components"
+      "@registrucentras/rc-ses-angular-components": [
+        "./dist/registrucentras/rc-ses-angular-components"
       ]
     },
     "outDir": "./dist/out-tsc",

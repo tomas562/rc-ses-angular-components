@@ -1,6 +1,20 @@
 {
-  "name": "@rc-ses/angular-components",
-  "version": "0.0.1",
+  "name": "@registrucentras/rc-ses-angular-components",
+  "version": "0.1.0",
+  "author": "VĮ REGISTRŲ CENTRAS",
+  "description": "RC SES Angular komponentų biblioteka",
+  "keywords": [
+    "angular",
+    "components",
+    "registrucentras",
+    "rc-ses",
+    "rc-ses-angular-components"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/registrucentras/rc-ses-angular-components.git"
+  },
+  "private": false,
   "exports": {
     "./theme": {
       "index": "./src/lib/theme/index.scss",
@@ -14,7 +28,10 @@
     "@angular/cdk": "^18.1.2",
     "@angular/common": "^18.1.0",
     "@angular/core": "^18.1.0",
-    "@angular/material": "^18.1.2"
+    "@angular/forms": "^18.1.0",
+    "@angular/material": "^18.1.2",
+    "@angular/platform-browser": "^18.1.0",
+    "@angular/router": "^18.1.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
