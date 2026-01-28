@@ -10,7 +10,9 @@
     "build": "ng build app",
     "build:lib": "ng build @registrucentras/rc-ses-angular-components",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:run": "ng test --no-watch --browsers=ChromeHeadlessCI",
+    "test:coverage": "ng test --no-watch --browsers=ChromeHeadlessCI --code-coverage"
   },
   "dependencies": {
     "@angular/animations": "^18.1.0",
@@ -39,6 +41,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "karma-junit-reporter": "^2.0.1",
     "ng-packagr": "^18.1.0",
     "typescript": "~5.5.2"
   }

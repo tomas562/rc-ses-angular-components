@@ -1,0 +1,18 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "jasmine"
+    ],
+    "moduleResolution": "node"
+  },
+  "files": [
+    "projects/rc-ses/angular-components/src/test.ts"
+  ],
+  "include": [
+    "projects/rc-ses/angular-components/src/**/*.spec.ts",
+    "projects/rc-ses/angular-components/src/**/*.d.ts"
+  ]
+}

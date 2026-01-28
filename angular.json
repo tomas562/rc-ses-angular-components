@@ -5,6 +5,33 @@
   "projects": {
     "@registrucentras/rc-ses-angular-components": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": false
+        },
+        "@schematics/angular:class": {
+          "skipTests": false
+        },
+        "@schematics/angular:directive": {
+          "skipTests": false
+        },
+        "@schematics/angular:guard": {
+          "skipTests": false
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": false
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": false
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": false
+        },
+        "@schematics/angular:service": {
+          "skipTests": false
+        }
+      },
       "root": "projects/rc-ses/angular-components",
       "sourceRoot": "projects/rc-ses/angular-components/src",
       "prefix": "rc-ses",
@@ -23,6 +50,24 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "karmaConfig": "karma.conf.js",
+            "main": "projects/rc-ses/angular-components/src/test.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [],
+            "styles": [
+              "projects/rc-ses/angular-components/src/lib/theme/index.scss"
+            ],
+            "scripts": []
+          }
         }
       }
     },
