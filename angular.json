@@ -57,8 +57,7 @@
             "karmaConfig": "karma.conf.js",
             "main": "projects/rc-ses/angular-components/src/test.ts",
             "polyfills": [
-              "zone.js",
-              "zone.js/testing"
+              "zone.js"
             ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
